@@ -1,0 +1,75 @@
+{
+  "name": "workerman/webman",
+  "type": "project",
+  "keywords": [
+    "high performance",
+    "http service"
+  ],
+  "homepage": "https://www.workerman.net",
+  "license": "MIT",
+  "description": "High performance HTTP Service Framework.",
+  "authors": [
+    {
+      "name": "walkor",
+      "email": "walkor@workerman.net",
+      "homepage": "https://www.workerman.net",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "walkor@workerman.net",
+    "issues": "https://github.com/walkor/webman/issues",
+    "forum": "https://wenda.workerman.net/",
+    "wiki": "https://workerman.net/doc/webman",
+    "source": "https://github.com/walkor/webman"
+  },
+  "require": {
+    "php": ">=7.2",
+    "workerman/webman-framework": "^1.4.3",
+    "monolog/monolog": "^2.0",
+    "vlucas/phpdotenv": "^5.4.1",
+    "illuminate/database": ">=7.30",
+    "illuminate/pagination": ">=7.30",
+    "illuminate/events": ">=7.30",
+    "intervention/image": "^2.7",
+    "webman/event": "^1.0",
+    "webman/captcha": "^1.0.0",
+    "psr/container": "^1.1.1",
+    "jenssegers/blade": "~1.4.0",
+    "guzzlehttp/guzzle": "^7.5",
+    "illuminate/redis": "^8.83",
+    "ramsey/uuid": "^4.3",
+    "phpmailer/phpmailer": "~6.1.6",
+    "symfony/cache": "^5.4"
+  },
+  "suggest": {
+    "ext-event": "For better performance. "
+  },
+  "autoload": {
+    "psr-4": {
+      "": "./",
+      "App\\": "./app",
+      "Lakew\\": "./lakew"
+    },
+    "files": [
+      "./support/helpers.php"
+    ]
+  },
+  "scripts": {
+    "post-package-install": [
+      "support\\Plugin::install"
+    ],
+    "post-package-update": [
+      "support\\Plugin::install"
+    ],
+    "pre-package-uninstall": [
+      "support\\Plugin::uninstall"
+    ]
+  },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    }
+}
