@@ -97,7 +97,7 @@
                     <form class="settings-form">
                         <div class="mb-3">
                             <div class="setting-data">
-                                <div class="mb-2">
+                                <div class="mb-2" id="avatar-preview">
                                     <img class="rounded-circle profile-image" 
                                         src="{{ avatar_assets($userInfo['avatar']) }}" 
                                         alt="头像">
@@ -239,7 +239,7 @@
                 if (data.code == 0) {
                     var avatar = data.data.avatar;
                     var url = data.data.url;
-                    var $img = $('#art-preview').find('img');
+                    var $img = $('#avatar-preview').find('img');
 
                     $img.attr('src', url);
                     $img.attr('alt', file.name);

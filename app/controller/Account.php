@@ -74,7 +74,6 @@ class Account extends Base
             return $this->json(1, '验证码错误');
         }
         
-        $session = $request->session();
         $session->forget('captcha-account');
         
         $username = $request->post('username', '');
