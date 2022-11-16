@@ -52,7 +52,7 @@ lshort-url 是一套基于 webman 框架的通用短链接服务系统
 
 1. 首先 `clone` 系统到本地
 
-```php
+```git
 git clone https://github.com/deatil/short-url.git
 ```
 
