@@ -98,7 +98,7 @@
                                         checked=""
                                         @endif
                                         >
-                                    <span class="form-radio-sign">启用</span>
+                                    <span class="form-radio-sign">开启运行</span>
                                 </label>
                                 <label class="form-radio-label ml-3">
                                     <input class="form-radio-input" 
@@ -109,7 +109,7 @@
                                         checked=""
                                         @endif
                                         >
-                                    <span class="form-radio-sign">禁用</span>
+                                    <span class="form-radio-sign">关闭网站</span>
                                 </label>
                             </div>
                             <small class="form-text text-muted">

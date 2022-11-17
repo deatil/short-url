@@ -25,17 +25,24 @@ class Check
     /**
      * 验证数据
      *
-     * @param array $data    数据
-     * @param array $rules   验证规则
-     * @param array $message 错误信息
+     * @param array $data          数据
+     * @param array $rules         验证规则
+     * @param array $message       错误信息
+     * @param bool  $batch         批量返回
+     * @param bool  $failException 抛出异常
      * @return bool|string
      */
-    public static function data(array $data, array $rules, array $message)
-    {
+    public static function data(
+        array $data, 
+        array $rules, 
+        array $message,
+        bool $batch = false,
+        bool $failException = false
+    ) {
         $validate = new Validate();
         $validate->message($message);
-        $validate->batch(false);
-        $validate->failException(false);
+        $validate->batch($batch);
+        $validate->failException($failException);
         
         $checked = $validate->check($data, $rules);
         if ($checked) {
@@ -46,16 +53,17 @@ class Check
     }
     
     /**
-     * 验证数据
+     * 验证单个数据
      *
-     * @param mixed $value 字段值
-     * @param mixed $rules 验证规则
+     * @param mixed $value         字段值
+     * @param mixed $rules         验证规则
+     * @param bool  $failException 抛出异常
      * @return bool
      */
-    public static function rule($value, $rules): bool
+    public static function value($value, $rules, bool $failException = false): bool
     {
         $validate = new Validate();
-        $validate->failException(false);
+        $validate->failException($failException);
         
         return $validate->checkRule($value, $rules);
     }

@@ -3,14 +3,29 @@
 use Lakew\Email;
 use app\model\Setting as SettingModel;
 
-// 页面提示
-function msg($msg, $url = '', int $wait = 5)
+// 响应 json
+function response_json(int $code, string $msg = 'ok', array $data = [])
 {
+    return json([
+        'code' => $code, 
+        'msg' => $msg, 
+        'data' => $data, 
+    ]);
+}
+
+// 响应页面返回信息
+function response_msg($msg, $url = '', int $wait = 5) {
     return view('error/error', [
         'msg'  => $msg,
         'url'  => $url,
         'wait' => $wait,
     ]);
+}
+
+// 页面提示
+function msg($msg, $url = '', int $wait = 5)
+{
+    return response_msg($msg, $url, $wait);
 }
 
 // 短链接生成

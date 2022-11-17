@@ -20,6 +20,14 @@
                         <div>
                             <div>
                                 <div class="text-muted">
+                                    序列号：
+                                </div>
+                                <div class="text-black">
+                                    {{ $data['id'] }}
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <div class="text-muted">
                                     跳转链接：
                                 </div>
                                 <div class="text-black">

@@ -16,7 +16,7 @@ CREATE TABLE `sys_app` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `app_id` (`app_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='api 接口申请';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='api 接口申请';
 
 DROP TABLE IF EXISTS `sys_setting`;
 CREATE TABLE `sys_setting` (
@@ -63,5 +63,5 @@ CREATE TABLE `sys_user` (
   KEY `email` (`email`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC COMMENT='用户';
 
-INSERT INTO `sys_setting` VALUES (1,'website_name','热门八卦王12','网站名称',1),(2,'website_keywords','热门八卦王12','网站关键字',1),(3,'website_description','热门八卦王12','网站描述',1),(4,'website_copyright','版权112','网站版权',1),(5,'website_status','1','网站状态',1),(6,'website_beian','ICP备123456号-112','网站备案',1);
-INSERT INTO `sys_user` VALUES (1,'admin','$2y$10$SPbF6UU9uwqpID26B15.pON54WrC1TbQHLSQjf1ARubGycofOt4Fy','admin@admin.com','15345678911','avatar/202211/636f16aa5686.jpg',0,1,1667491323,'127.0.0.1'),(2,'shorturl','$2y$10$jLGaSKCxM85s0a3mbl0ZxuojUJT578lU0MD8m6MtxxdBaW/LVEsQu','admin2@qq.com','15345678911','',0,1,1667491323,'127.0.0.1');
+INSERT INTO `sys_setting` VALUES (1,'website_name','short-url','网站名称',1),(2,'website_keywords','short-url,webman,url','网站关键字',1),(3,'website_description','短链接服务系统','网站描述',1),(4,'website_copyright','@deatil','网站版权',1),(5,'website_status','1','网站状态',1),(6,'website_beian','ICP备123456号-112','网站备案',1);
+INSERT INTO `sys_user` VALUES (1,'admin','$2y$10$SPbF6UU9uwqpID26B15.pON54WrC1TbQHLSQjf1ARubGycofOt4Fy','admin@admin.com','15345678911','avatar/202211/636f16aa5686.jpg',0,1,1667491323,'127.0.0.1'),(2,'shorturl','$2y$10$jLGaSKCxM85s0a3mbl0ZxuojUJT578lU0MD8m6MtxxdBaW/LVEsQu','admin2@qq.com','15345678911','avatar/202211/637504ccd24f.jpg',0,1,1667491323,'127.0.0.1');

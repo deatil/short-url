@@ -4,33 +4,48 @@ use Webman\Route;
 use app\middleware;
 use app\controller;
 use app\controller\sys as sysController;
+use app\controller\api as apiController;
 
 // 默认
 Route::group('', function() {
     // 首页
     Route::get('/', [controller\Index::class, 'index'])->name('index.index');
-    Route::get('/r/{id}', [controller\Index::class, 'redirect'])->name('index.redirect');
 })->middleware([
+    middleware\CheckWebsiteOpen::class,
     middleware\SetLoginInfo::class,
 ]);
 
-// api
+// 跳转
+Route::get('/r/{id}', [controller\Redirect::class, 'url'])->name('redirect.url');
+
+// api 接口
 Route::group('/api', function() {
-    Route::post('/create-url', [controller\Api::class, 'createUrl'])->name('api.create-url');
-});
+    Route::post('/url/index', [apiController\Url::class, 'index'])->name('api.url.index');
+    Route::post('/url/create', [apiController\Url::class, 'create'])->name('api.url.create');
+    Route::post('/url/delete', [apiController\Url::class, 'delete'])->name('api.url.delete');
+})->middleware([
+    middleware\CheckWebsiteOpen::class,
+    middleware\CheckApiSign::class,
+]);
 
 // 登录相关
 Route::group('/account', function() {
     Route::get('/captcha', [controller\Account::class, 'captcha'])->name('account.captcha');
     Route::get('/login', [controller\Account::class, 'login'])->name('account.login');
     Route::post('/login', [controller\Account::class, 'loginCheck'])->name('account.login-check');
-    Route::get('/register', [controller\Account::class, 'register'])->name('account.register');
-    Route::post('/register', [controller\Account::class, 'registerCheck'])->name('account.register-check');
-    Route::get('/reset-password', [controller\Account::class, 'resetPassword'])->name('account.reset-password');
-    Route::post('/reset-password', [controller\Account::class, 'resetPasswordCheck'])->name('account.reset-password-check');
-    Route::get('/find-password/{hashid}', [controller\Account::class, 'findPassword'])->name('account.find-password');
-    Route::post('/find-password/{hashid}', [controller\Account::class, 'findPasswordCheck'])->name('account.find-password-check');
     Route::get('/logout', [controller\Account::class, 'logout'])->name('account.logout');
+    
+    Route::group('', function() {
+        Route::get('/register', [controller\Account::class, 'register'])->name('account.register');
+        Route::post('/register', [controller\Account::class, 'registerCheck'])->name('account.register-check');
+        Route::get('/reset-password', [controller\Account::class, 'resetPassword'])->name('account.reset-password');
+        Route::post('/reset-password', [controller\Account::class, 'resetPasswordCheck'])->name('account.reset-password-check');
+        Route::get('/find-password/{hashid}', [controller\Account::class, 'findPassword'])->name('account.find-password');
+        Route::post('/find-password/{hashid}', [controller\Account::class, 'findPasswordCheck'])->name('account.find-password-check');
+    
+    })->middleware([
+        middleware\CheckWebsiteOpen::class,
+    ]);
 });
 
 // 我的
@@ -55,15 +70,7 @@ Route::group('/my', function() {
     Route::post('/url-delete', [controller\MyUrl::class, 'delete'])->name('my.url.delete');
 
 })->middleware([
-    middleware\SetLoginInfo::class,
-    middleware\LoginCheck::class,
-]);
-
-// 上传
-Route::group('/upload', function() {
-    Route::post('/avatar', [controller\Upload::class, 'avatar'])->name('upload.avatar');
-
-})->middleware([
+    middleware\CheckWebsiteOpen::class,
     middleware\SetLoginInfo::class,
     middleware\LoginCheck::class,
 ]);
@@ -73,6 +80,17 @@ Route::group('/help', function() {
     Route::get('', [controller\Help::class, 'index'])->name('help.index');
 
 })->middleware([
+    middleware\CheckWebsiteOpen::class,
+    middleware\SetLoginInfo::class,
+    middleware\LoginCheck::class,
+]);
+
+// 上传
+Route::group('/upload', function() {
+    Route::post('/avatar', [controller\Upload::class, 'avatar'])->name('upload.avatar');
+
+})->middleware([
+    middleware\CheckWebsiteOpen::class,
     middleware\SetLoginInfo::class,
     middleware\LoginCheck::class,
 ]);

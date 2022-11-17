@@ -70,6 +70,12 @@ composer update
 php windows.php
 ```
 
+或者
+
+```php
+php start.php
+```
+
 5. 登录地址: `http://127.0.0.1:8787/account/login`, 后台登录账号及密码：`admin` / `123456`
 
 

@@ -71,10 +71,26 @@
                                 @foreach ($list as $item)
                                 <tr>
                                     <td class="cell">
-                                        {{ $item['url'] }}
+                                        <span class="truncate" 
+                                            data-container="body" 
+                                            data-toggle="popover" 
+                                            data-trigger="hover" 
+                                            data-placement="top" 
+                                            data-content="{{ $item['url'] }}"
+                                        >
+                                            {{ $item['url'] }}
+                                        </span>
                                     </td>
                                     <td class="cell">
-                                        {{ share_url($item['url_id']) }}
+                                        <span class="truncate" 
+                                            data-container="body" 
+                                            data-toggle="popover" 
+                                            data-trigger="hover" 
+                                            data-placement="top" 
+                                            data-content="{{ share_url($item['url_id']) }}"
+                                        >
+                                            {{ share_url($item['url_id']) }}
+                                        </span>
                                     </td>
                                     <td class="cell">
                                         @if ($item['type'] == 1)
@@ -109,7 +125,7 @@
                         </table>
                     </div><!--//table-responsive-->
                    
-                </div><!--//app-card-body-->		
+                </div><!--//app-card-body-->
             </div><!--//app-card-->
             
             <nav class="app-pagination">

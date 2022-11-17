@@ -60,7 +60,6 @@
                         <table class="table app-table-hover mb-0 text-left">
                             <thead>
                                 <tr>
-                                    <th class="cell">#</th>
                                     <th class="cell">访问链接</th>
                                     <th class="cell">短链接</th>
                                     <th class="cell">类型</th>
@@ -74,16 +73,25 @@
                                 @foreach ($list as $item)
                                 <tr>
                                     <td class="cell">
-                                        {{ $item['url_id'] }}
+                                        <span class="truncate" 
+                                            data-container="body" 
+                                            data-toggle="popover" 
+                                            data-trigger="hover" 
+                                            data-placement="top" 
+                                            data-content="{{ $item['url'] }}"
+                                        >
+                                            {{ $item['url'] }}
+                                        </span>
                                     </td>
                                     <td class="cell">
-                                        <span class="truncate">{{ $item['url'] }}</span>
-                                    </td>
-                                    <td class="cell">
-                                        <span>{{ share_url($item['url_id']) }}</span>
-                                        <span class="note">
-                                            系统地址: 
-                                            {{ short_route('index.redirect', ['id' => $item['url_id']]) }}
+                                        <span class="truncate" 
+                                            data-container="body" 
+                                            data-toggle="popover" 
+                                            data-trigger="hover" 
+                                            data-placement="top" 
+                                            data-content="{{ share_url($item['url_id']) }}"
+                                        >
+                                            {{ share_url($item['url_id']) }}
                                         </span>
                                     </td>
                                     <td class="cell">
@@ -97,7 +105,10 @@
                                         {{ $item['user']['username'] }}
                                     </td>
                                     <td class="cell">
-                                        {{ date('Y-m-d H:i:s', $item['add_time']) }}
+                                        <span>{{ date('Y-m-d', $item['add_time']) }}</span>
+                                        <span class="note">
+                                            {{ date('H:i:s', $item['add_time']) }}
+                                        </span>
                                     </td>
                                     <td class="cell">
                                         @if ($item['status'] == 1)
