@@ -39,7 +39,7 @@
                                 <button type="submit" class="btn app-btn-secondary">搜索</button>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ route('my.url.create') }}" class="btn app-btn-primary">添加</a>
+                                <a href="{{ route('my.sys.url.create') }}" class="btn app-btn-primary">添加</a>
                             </div>
                         </form>
                         
@@ -113,19 +113,19 @@
                                     <td class="cell">
                                         @if ($item['status'] == 1)
                                             <span class="badge bg-success js-disable-btn"
-                                                data-url="{{ route('url.disable', ['id' => $item['id']]) }}"
+                                                data-url="{{ route('sys.url.disable', ['id' => $item['id']]) }}"
                                                 >启用</span>
                                         @else
                                             <span class="badge bg-danger js-enable-btn"
-                                                data-url="{{ route('url.enable', ['id' => $item['id']]) }}"
+                                                data-url="{{ route('sys.url.enable', ['id' => $item['id']]) }}"
                                                 >禁用</span>
                                         @endif
                                     </td>
                                     <td class="cell" style="width: 160px;">
                                         <a class="btn-sm app-btn-secondary" 
-                                            href="{{ route('url.update', ['id' => $item['id']]) }}">编辑</a>
+                                            href="{{ route('sys.url.update', ['id' => $item['id']]) }}">编辑</a>
                                         <a class="btn-sm btn-danger text-white js-delete-btn" 
-                                            data-url="{{ route('url.delete', ['id' => $item['id']]) }}"
+                                            data-url="{{ route('sys.url.delete', ['id' => $item['id']]) }}"
                                             href="javascript:;">删除</a>
                                     </td>
                                 </tr>

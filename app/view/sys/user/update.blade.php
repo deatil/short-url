@@ -135,7 +135,7 @@
 
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="avatar_delete" id="settings-checkbox-avatar_delete" value="1">
-                                    <label class="form-check-label" for="settings-checkbox-avatar_delete">
+                                    <label class="form-check-label small" for="settings-checkbox-avatar_delete">
                                         清空头像数据
                                     </label>
                                 </div>
@@ -204,7 +204,7 @@
 
             var data = $(".user-form").serialize();
 
-            var url = "{{ route('user.update-save', ['id' => $data['id']]) }}";
+            var url = "{{ route('sys.user.update-save', ['id' => $data['id']]) }}";
             $.post(url, data, function(data) {
                 if (data.code == 0) {
                     layer.msg(data.msg);

@@ -35,13 +35,12 @@ class Apply extends BaseController
         $limit = 10;
         $start = max(((int) $page - 1) * $limit, 0);
         
-        $query = AppModel::where('status', 1)
+        $query = AppModel::query()
             ->where(function($query) use($keyword) {
                 $query->orWhere('app_id', 'like', '%'.$keyword.'%');
             });
         
         $total = $query->count(); 
-        
         $list = $query
             ->with('user')
             ->offset($start)

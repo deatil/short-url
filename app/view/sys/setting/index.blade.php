@@ -143,7 +143,7 @@
 
             var data = $(".settings-form").serialize();
 
-            var url = "{{ route('setting.save') }}";
+            var url = "{{ route('sys.setting.save') }}";
             $.post(url, data, function(data) {
                 if (data.code == 0) {
                     layer.msg("保存成功");

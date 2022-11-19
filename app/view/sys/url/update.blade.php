@@ -177,7 +177,7 @@
 
             var data = $(".url-form").serialize();
 
-            var url = "{{ route('url.update-save', ['id' => $data['id']]) }}";
+            var url = "{{ route('sys.url.update-save', ['id' => $data['id']]) }}";
             $.post(url, data, function(data) {
                 if (data.code == 0) {
                     layer.msg(data.msg);

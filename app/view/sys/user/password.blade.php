@@ -88,7 +88,7 @@
 
             var data = $(".user-form").serialize();
 
-            var url = "{{ route('user.password-save', ['id' => $data['id']]) }}";
+            var url = "{{ route('sys.user.password-save', ['id' => $data['id']]) }}";
             $.post(url, data, function(data) {
                 if (data.code == 0) {
                     layer.msg(data.msg);

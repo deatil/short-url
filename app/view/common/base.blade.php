@@ -10,7 +10,7 @@
     
     <meta name="description" content="">
     <meta name="author" content="short-url">    
-    <link rel="shortcut icon" href="favicon.ico"> 
+    <link rel="shortcut icon" href="/favicon.ico"> 
     
     @section('style')
         <!-- App CSS -->  

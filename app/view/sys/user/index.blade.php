@@ -24,7 +24,7 @@
                                 <button type="submit" class="btn app-btn-secondary">搜索</button>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ route('user.create') }}" class="btn app-btn-primary">添加</a>
+                                <a href="{{ route('sys.user.create') }}" class="btn app-btn-primary">添加</a>
                             </div>
                         </form>
                         
@@ -79,21 +79,21 @@
                                     <td class="cell">
                                         @if ($item['status'] == 1)
                                             <span class="badge bg-success js-disable-btn"
-                                                data-url="{{ route('user.disable', ['id' => $item['id']]) }}"
+                                                data-url="{{ route('sys.user.disable', ['id' => $item['id']]) }}"
                                                 >启用</span>
                                         @else
                                             <span class="badge bg-danger js-enable-btn"
-                                                data-url="{{ route('user.enable', ['id' => $item['id']]) }}"
+                                                data-url="{{ route('sys.user.enable', ['id' => $item['id']]) }}"
                                                 >禁用</span>
                                         @endif
                                     </td>
                                     <td class="cell">
                                         <a class="btn-sm app-btn-secondary" 
-                                            href="{{ route('user.password', ['id' => $item['id']]) }}">密码</a>
+                                            href="{{ route('sys.user.password', ['id' => $item['id']]) }}">密码</a>
                                         <a class="btn-sm app-btn-secondary" 
-                                            href="{{ route('user.update', ['id' => $item['id']]) }}">编辑</a>
+                                            href="{{ route('sys.user.update', ['id' => $item['id']]) }}">编辑</a>
                                         <a class="btn-sm btn-danger text-white js-delete-btn" 
-                                            data-url="{{ route('user.delete', ['id' => $item['id']]) }}"
+                                            data-url="{{ route('sys.user.delete', ['id' => $item['id']]) }}"
                                             href="javascript:;">删除</a>
                                     </td>
                                 </tr>

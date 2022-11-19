@@ -74,7 +74,7 @@
 
             var data = $(".user-form").serialize();
 
-            var url = "{{ route('user.create-save') }}";
+            var url = "{{ route('sys.user.create-save') }}";
             $.post(url, data, function(data) {
                 if (data.code == 0) {
                     layer.msg(data.msg);

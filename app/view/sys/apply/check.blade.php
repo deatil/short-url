@@ -199,7 +199,7 @@
 
             var data = $(".apply-form").serialize();
 
-            var url = "{{ route('apply.check-save', ['id' => $data['id']]) }}";
+            var url = "{{ route('sys.apply.check-save', ['id' => $data['id']]) }}";
             $.post(url, data, function(data) {
                 if (data.code == 0) {
                     layer.msg(data.msg);

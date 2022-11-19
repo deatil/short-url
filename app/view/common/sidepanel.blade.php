@@ -76,16 +76,16 @@
                     >
                         <ul class="submenu-list list-unstyled">
                             <li class="submenu-item nav-settings-apply">
-                                <a class="submenu-link" href="{{ route('apply.index') }}">申请管理</a>
+                                <a class="submenu-link" href="{{ route('sys.apply.index') }}">申请管理</a>
                             </li>
                             <li class="submenu-item nav-settings-url">
-                                <a class="submenu-link" href="{{ route('url.index') }}">链接管理</a>
+                                <a class="submenu-link" href="{{ route('sys.url.index') }}">链接管理</a>
                             </li>
                             <li class="submenu-item nav-settings-user">
-                                <a class="submenu-link" href="{{ route('user.index') }}">用户管理</a>
+                                <a class="submenu-link" href="{{ route('sys.user.index') }}">用户管理</a>
                             </li>
                             <li class="submenu-item nav-settings-setting">
-                                <a class="submenu-link" href="{{ route('setting.index') }}">网站设置</a>
+                                <a class="submenu-link" href="{{ route('sys.setting.index') }}">网站设置</a>
                             </li>
                         </ul>
                     </div>

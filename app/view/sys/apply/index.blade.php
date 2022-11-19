@@ -85,7 +85,7 @@
                                     </td>
                                     <td class="cell">
                                         <a class="btn-sm app-btn-secondary" 
-                                            href="{{ route('apply.check', ['id' => $item['id']]) }}">审核</a>
+                                            href="{{ route('sys.apply.check', ['id' => $item['id']]) }}">审核</a>
                                         <a class="btn-sm btn-danger text-white js-delete-btn" 
                                             data-id="{{ $item['id'] }}"
                                             href="javascript:;">删除</a>
@@ -132,7 +132,7 @@
         // 删除
         $('.js-delete-btn').click(function() {
             var id = $(this).data('id');
-            var url = "{{ route('apply.delete') }}";
+            var url = "{{ route('sys.apply.delete') }}";
             
             layer.confirm('您确定要删除该条数据吗？', {
                 btn: ['确定', '取消']
