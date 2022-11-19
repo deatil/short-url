@@ -39,7 +39,7 @@
                                 <button type="submit" class="btn app-btn-secondary">搜索</button>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ route('my.sys.url.create') }}" class="btn app-btn-primary">添加</a>
+                                <a href="{{ route('my.url.create') }}" class="btn app-btn-primary">添加</a>
                             </div>
                         </form>
                         
