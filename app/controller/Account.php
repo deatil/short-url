@@ -100,6 +100,12 @@ class Account extends Base
             $response->cookie('keep-login', $value, $maxAge, '/');
         }
         
+        // 登录时间
+        UserModel::where('id', $user->id)
+            ->update([
+                'login_time' => time(),
+            ]);
+        
         return $response;
     }
 

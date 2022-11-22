@@ -79,7 +79,7 @@ class Crypto
      */
     public function encrypt($str)
     {
-        $str = $this->pkcsPadding($str, 8);
+        $str = $this->PKCS7Padding($str, 8);
         $sign = openssl_encrypt($str, $this->method, $this->key, $this->options, $this->iv);
 
         if ($this->output == self::OUTPUT_BASE64) {
@@ -106,7 +106,7 @@ class Crypto
         }
 
         $sign = @openssl_decrypt($encrypted, $this->method, $this->key, $this->options, $this->iv);
-        $sign = $this->unPkcsPadding($sign);
+        $sign = $this->PKCS7UnPadding($sign);
         $sign = rtrim($sign);
         
         return $sign;
@@ -119,7 +119,7 @@ class Crypto
      * @param $blocksize
      * @return string
      */
-    private function pkcsPadding($str, $blocksize)
+    private function PKCS7Padding($str, $blocksize)
     {
         $pad = $blocksize - (strlen($str) % $blocksize);
         return $str . str_repeat(chr($pad), $pad);
@@ -131,7 +131,7 @@ class Crypto
      * @param $str
      * @return string
      */
-    private function unPkcsPadding($str)
+    private function PKCS7UnPadding($str)
     {
         $pad = ord($str[strlen($str) - 1]);
         if ($pad > strlen($str)) {
