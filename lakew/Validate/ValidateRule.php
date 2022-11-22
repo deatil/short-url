@@ -52,10 +52,7 @@ namespace Lakew\Validate;
  * @method ValidateRule fileMime(mixed $rule, string $msg = '') static 验证文件类型
  * @method ValidateRule fileSize(mixed $rule, string $msg = '') static 验证文件大小
  * @method ValidateRule image(mixed $rule, string $msg = '') static 验证图像文件
- * @method ValidateRule method(mixed $rule, string $msg = '') static 验证请求类型
  * @method ValidateRule dateFormat(mixed $rule, string $msg = '') static 验证时间和日期是否符合指定格式
- * @method ValidateRule unique(mixed $rule, string $msg = '') static 验证是否唯一
- * @method ValidateRule behavior(mixed $rule, string $msg = '') static 使用行为类验证
  * @method ValidateRule filter(mixed $rule, string $msg = '') static 使用filter_var方式验证
  * @method ValidateRule requireIf(mixed $rule, string $msg = '') static 验证某个字段等于某个值的时候必须
  * @method ValidateRule requireCallback(mixed $rule, string $msg = '') static 通过回调方法验证某个字段是否必须
